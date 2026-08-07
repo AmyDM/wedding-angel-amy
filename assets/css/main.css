@@ -9127,6 +9127,22 @@ input, select, textarea {
     color: #edf1f7;
 }
 
+/* Aviso de fecha límite */
+.rsvp-deadline {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.85;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Mensaje cuando el plazo ya cerró */
+.rsvp-closed-box {
+    max-width: 30rem;
+    margin: 1rem auto 0 auto;
+    line-height: 1.8;
+}
+
 .rsvp-section .button.primary {
     background-color: #d1d1d1;
     color: #2b3654 !important;

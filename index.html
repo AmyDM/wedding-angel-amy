@@ -194,25 +194,32 @@
 					<section class="wrapper style1 align-center rsvp-section onscroll-fade-in">
 						<div class="inner onscroll-fade-in">
 							<h2 class="sub-title">Confirma tu Asistencia</h2>
+							<p class="rsvp-deadline">Por favor confirma antes del <strong>22 de octubre</strong>.</p>
 
-														<p id="rsvp-saludo" class="rsvp-saludo" style="display:none;"></p>
-							<p>Esta invitación ha sido reservada para <strong id="seats">4</strong> persona(s).</p>
+							<div id="rsvp-active">
+								<p id="rsvp-saludo" class="rsvp-saludo" style="display:none;"></p>
+								<p>Esta invitación ha sido reservada para <strong id="seats">4</strong> persona(s).</p>
 
-							<form id="rsvp-form">
-								<label>¿Cuántos asistirán?</label>
-								<select id="guestCount" required>
-									<option value="" disabled selected>Cargando opciones...</option>
-								</select>
+								<form id="rsvp-form">
+									<label>¿Cuántos asistirán?</label>
+									<select id="guestCount" required>
+										<option value="" disabled selected>Cargando opciones...</option>
+									</select>
 
-								<br><br>
+									<br><br>
 
-								<button type="submit" class="button primary">
-									Confirmar asistencia
-								</button>
-							</form>
-							<div id="thank-you" class="thank-you-box">
-							<h3 class="thank-you-title">GRACIAS POR CONFIRMAR</h3>
-							<p class="thank-you-text">Tu presencia es nuestro mejor regalo.</p>
+									<button type="submit" class="button primary">
+										Confirmar asistencia
+									</button>
+								</form>
+								<div id="thank-you" class="thank-you-box">
+								<h3 class="thank-you-title">GRACIAS POR CONFIRMAR</h3>
+								<p class="thank-you-text">Tu presencia es nuestro mejor regalo.</p>
+								</div>
+							</div>
+
+							<div id="rsvp-closed" class="rsvp-closed-box" style="display:none;">
+								<p>¡Gracias por tanto cariño! El período para confirmar cerró el 22 de octubre.</p>
 							</div>
 						</div>
 					</section>
@@ -250,7 +257,7 @@
 							<section>
 								<h3>Luna de Miel</h3>
 								<p>
-									Si desean ayudarnos a hacer de nuestra luna de miel un recuerdo inolvidable, pueden hacerlo a través de esta cuenta:
+									También pueden bendecirnos transfiriendo a nuestra cuenta:
 								</p>
 								<div class="bank-card">
 									<p class="bank-name">Banco Industrial</p>
@@ -289,7 +296,7 @@
 								</div>
 							</div>
 							<div class="contact-photo">
-								<img src="images/sdd6.jpg" alt="Angel y Amy" />
+								<img src="images/sdd3.jpg" alt="Angel y Amy" />
 							</div>
 						</div>
 					</section>
@@ -373,6 +380,16 @@
 					"Contando los días para celebrar nuestro amor ♡";
 
 			}, 1000);
+		</script>
+
+		<!-- Fecha límite de RSVP: cierra el formulario después del 22 de octubre -->
+		<script>
+			const rsvpDeadline = new Date("2026-10-22T23:59:59").getTime();
+
+			if (Date.now() > rsvpDeadline) {
+				document.getElementById("rsvp-active").style.display = "none";
+				document.getElementById("rsvp-closed").style.display = "block";
+			}
 		</script>
 
 		<!-- Cantidad de invitados por RSVP (según el enlace ?rsvp=) -->
