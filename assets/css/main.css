@@ -9100,11 +9100,61 @@ input, select, textarea {
     margin-bottom: 0.5rem;
 }
 
-/* Fondo gris para Save the Date, Ubicación y RSVP */
+/* Fondo gris para Save the Date y Ubicación */
 #first,
-.location-section,
-.rsvp-section {
+.location-section {
     background-color: #e9ebee;
+}
+
+/* Sección RSVP: fondo azul marino para resaltar su importancia */
+.rsvp-section {
+    background-color: #12172c;
+}
+
+.rsvp-section .sub-title,
+.rsvp-section p,
+.rsvp-section label,
+.rsvp-saludo {
+    color: #edf1f7;
+}
+
+.rsvp-section p strong {
+    color: #edf1f7;
+}
+
+.rsvp-section .thank-you-title,
+.rsvp-section .thank-you-text {
+    color: #edf1f7;
+}
+
+/* Aviso de fecha límite */
+.rsvp-deadline {
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.85;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Mensaje cuando el plazo ya cerró */
+.rsvp-closed-box {
+    max-width: 30rem;
+    margin: 1rem auto 0 auto;
+    line-height: 1.8;
+}
+
+.rsvp-section .button.primary {
+    background-color: #d1d1d1;
+    color: #2b3654 !important;
+}
+
+.rsvp-section .button.primary:hover {
+    background-color: #e4e4e4;
+}
+
+.rsvp-section select#guestCount {
+    background-color: #ffffff;
+    color: #12172c;
 }
 
 /* Foto circular de acento en la sección Save the Date */
