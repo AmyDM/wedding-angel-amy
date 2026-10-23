@@ -203,6 +203,7 @@
 						<div class="inner onscroll-fade-in">
 							<h2 class="sub-title">Confirma tu Asistencia</h2>
 							<p class="rsvp-deadline">Por favor confirma antes del <strong>22 de octubre</strong>.</p>
+							<div id="rsvp-reservado" class="rsvp-reservado" style="display:none;"></div>
 
 							<div id="rsvp-active">
 								<p id="rsvp-saludo" class="rsvp-saludo" style="display:none;"></p>
@@ -256,7 +257,7 @@
 								<p>
 									Hemos creado una lista en MAX con algunas cosas que nos ayudarán a comenzar esta nueva etapa.
 								</p>
-								<a href="https://www.max.com.gt/bodas-max/bodas/YSYEKDVD" class="button primary" target="_blank">
+								<a href="https://www2.max.com.gt/bodas/index/regalos/boda/42874/pareja/hernandez-martinez/fecha/22-11-2026" class="button primary" target="_blank">
 									Ver lista
 								</a>
 							</section>
@@ -265,7 +266,7 @@
 							<section>
 								<h3>Luna de Miel</h3>
 								<p>
-									Si desean ayudarnos a hacer de nuestra luna de miel un recuerdo inolvidable, pueden hacerlo a través de esta cuenta:
+									También pueden bendecirnos transfiriendo a nuestra cuenta:
 								</p>
 								<div class="bank-card">
 									<p class="bank-name">Banco Industrial</p>
@@ -304,7 +305,7 @@
 								</div>
 							</div>
 							<div class="contact-photo">
-								<img src="images/sdd6.jpg" alt="Angel y Amy" />
+								<img src="images/sdd3.jpg" alt="Angel y Amy" />
 							</div>
 						</div>
 					</section>
@@ -432,6 +433,19 @@
 				}
 			}
 
+			// Muestra "Lugares reservados: X" solo si confirmaron que SÍ asisten
+			function mostrarReservados(confirmados) {
+				const caja = document.getElementById("rsvp-reservado");
+				const n = Number(confirmados);
+				if (!caja) return;
+				if (n > 0) {
+					caja.innerText = `Lugares reservados: ${n}`;
+					caja.style.display = "inline-block";
+				} else {
+					caja.style.display = "none";
+				}
+			}
+
 			async function cargarInvitado() {
 				if (!guestGroup) {
 					pintarOpciones(1, null);
@@ -444,6 +458,7 @@
 
 					if (data.found) {
 						pintarOpciones(Number(data.asientos) || 1, data.nombre);
+						mostrarReservados(data.confirmados);
 						return;
 					}
 				} catch (err) {
@@ -479,6 +494,7 @@
 				// UX bonito 💅
 				document.getElementById("rsvp-form").style.display = "none";
 				document.getElementById("thank-you").style.display = "block";
+				mostrarReservados(guests);
 			});
 		</script>
 
