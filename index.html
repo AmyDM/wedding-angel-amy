@@ -433,13 +433,13 @@
 				}
 			}
 
-			// Muestra "Lugares reservados: X" solo si confirmaron que SÍ asisten
+			// Muestra "Lugares confirmados: X" solo si confirmaron que SÍ asisten
 			function mostrarReservados(confirmados) {
 				const caja = document.getElementById("rsvp-reservado");
 				const n = Number(confirmados);
 				if (!caja) return;
 				if (n > 0) {
-					caja.innerText = `Lugares reservados: ${n}`;
+					caja.innerText = `Lugares confirmados: ${n}`;
 					caja.style.display = "inline-block";
 				} else {
 					caja.style.display = "none";
